@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Lowercase Repository Name
       run: |
-        echo "IMAGE_NAME=${GITHUB_REPOSITORY@L}" >> "${GITHUB_ENV}"
+        echo "Image_Name=${GITHUB_REPOSITORY@L}" >> "${GITHUB_ENV}"
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -31,4 +31,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ghcr.io/${{ image_name }}:latest
+        tags: ghcr.io/${{ env.Image_Name }}:latest
